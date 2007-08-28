@@ -33,7 +33,7 @@
 
 Name:           nanoxml
 Version:        2.2.3
-Release:        %mkrel 4.1
+Release:        %mkrel 4.1.0
 Epoch:          0
 Summary:        NanoXML is a small XML parser for Java
 License:        zlib License
@@ -117,7 +117,7 @@ install -pm 644 Output/%{name}.jar \
 # javadoc
 install -dm 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 cp -pr Documentation/JavaDoc/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
-ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} # ghost symlink
+ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}
 
 %if %{gcj_support}
 %{_bindir}/aot-compile-rpm
@@ -126,16 +126,13 @@ ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} # ghost symlink
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%if %{gcj_support}
+%post
+%{update_gcjdb}
 
-%post javadoc
-rm -f %{_javadocdir}/%{name}
-ln -s %{name}-%{version} %{_javadocdir}/%{name}
-
-%postun javadoc
-if [ "$1" = "0" ]; then
-    rm -f %{_javadocdir}/%{name}
-fi
-
+%postun
+%{clean_gcjdb}
+%endif
 
 %files
 %defattr(-,root,root,-)
@@ -169,4 +166,4 @@ fi
 %files javadoc
 %defattr(0644,root,root,0755)
 %doc %{_javadocdir}/%{name}-%{version}
-%ghost %doc %{_javadocdir}/%{name}
+%doc %{_javadocdir}/%{name}
