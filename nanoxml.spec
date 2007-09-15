@@ -33,7 +33,7 @@
 
 Name:           nanoxml
 Version:        2.2.3
-Release:        %mkrel 4.1.0
+Release:        %mkrel 4.1.1
 Epoch:          0
 Summary:        NanoXML is a small XML parser for Java
 License:        BSD-style
@@ -45,8 +45,6 @@ BuildRequires:  jpackage-utils >= 0:1.6
 #BuildRequires:  java-javadoc
 Group:          Development/Java
 %if %{gcj_support}
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
 BuildRequires:  java-gcj-compat-devel
 %else
 BuildRequires: java-devel >= 0:1.4.2
