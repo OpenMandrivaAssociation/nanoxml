@@ -50,6 +50,7 @@ BuildRequires:  java-gcj-compat-devel
 BuildRequires: java-devel >= 0:1.4.2
 BuildArch:      noarch
 %endif
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 #Vendor:         JPackage Project
 #Distribution:   JPackage
 
