@@ -35,7 +35,7 @@ Name:           nanoxml
 Version:        2.2.3
 Release:        %mkrel 4.1.2
 Epoch:          0
-Summary:        NanoXML is a small XML parser for Java
+Summary:        Small XML parser for Java
 License:        BSD-style
 URL:            http://nanoxml.cyberelf.be/
 Source0:        http://nanoxml.cyberelf.be/downloads/NanoXML-2.2.3.tar.bz2
