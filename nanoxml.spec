@@ -28,12 +28,12 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-%define gcj_support 1
+%define gcj_support 0
 %define section free
 
 Name:           nanoxml
 Version:        2.2.3
-Release:        %mkrel 4.1.2
+Release:        %mkrel 4.1.3
 Epoch:          0
 Summary:        Small XML parser for Java
 License:        BSD-style
@@ -93,7 +93,7 @@ Javadoc for %{name}.
 %patch0
 cp %{SOURCE1} package-list
 find . -name "*.jar" | xargs -t rm
-%{__perl} -pi -e 's|javac |%{javac} |;' -e 's|jar |%{jar} |g;' -e 's|javadoc |%{javadoc} -source 1.4 |;' ./build.sh
+%{__perl} -pi -e 's|javac |%{javac} -source 1.3 |;' -e 's|jar |%{jar} |g;' -e 's|javadoc |%{javadoc} -source 1.3 |;' ./build.sh
 
 %build
 sh ./build.sh
@@ -117,9 +117,7 @@ install -dm 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 cp -pr Documentation/JavaDoc/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}
 
-%if %{gcj_support}
-%{_bindir}/aot-compile-rpm
-%endif
+%{gcj_compile}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
