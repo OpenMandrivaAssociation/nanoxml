@@ -33,7 +33,7 @@
 
 Name:           nanoxml
 Version:        2.2.3
-Release:        %mkrel 4.1.4
+Release:        %mkrel 4.1.5
 Epoch:          0
 Summary:        Small XML parser for Java
 License:        BSD-style
