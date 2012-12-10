@@ -163,3 +163,65 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(0644,root,root,0755)
 %doc %{_javadocdir}/%{name}-%{version}
 %doc %{_javadocdir}/%{name}
+
+
+%changelog
+* Sat Dec 11 2010 Oden Eriksson <oeriksson@mandriva.com> 0:2.2.3-4.1.5mdv2011.0
++ Revision: 620476
+- the mass rebuild of 2010.0 packages
+
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 0:2.2.3-4.1.4mdv2010.0
++ Revision: 430154
+- rebuild
+
+* Fri Sep 19 2008 Alexander Kurtakov <akurtakov@mandriva.org> 0:2.2.3-4.1.3mdv2009.0
++ Revision: 285841
+- fix build
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - fix "foobar is blabla" summary (=> "blabla") so that it looks nice in rpmdrake
+    - kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Anssi Hannula <anssi@mandriva.org>
+    - buildrequire java-rpmbuild, i.e. build with icedtea on x86(_64)
+
+* Sat Sep 15 2007 Anssi Hannula <anssi@mandriva.org> 0:2.2.3-4.1.1mdv2008.0
++ Revision: 87264
+- rebuild to filter out autorequires of GCJ AOT objects
+- remove unnecessary Requires(post) on java-gcj-compat
+
+* Wed Aug 29 2007 David Walluck <walluck@mandriva.org> 0:2.2.3-4.1.0mdv2008.0
++ Revision: 74734
+- fix javadoc build
+- change license to BSD-style
+- add gcj scriptlets
+- remove javadoc scriptlets
+- Import nanoxml
+
+
+
+
+* Wed Aug 09 2006 David Walluck <walluck@mandriva.org> 0:2.2.3-4.1mdv2007.0
+- release
+
+* Thu Jul 20 2006 Ralph Apel <r.apel@r-apel.de> - 0:2.2.3-4jpp
+- First JPP-1.7 release
+- Drop BR java-javadoc, add package-list as Source instead
+
+* Mon Aug 23 2004 Fernando Nasser <fnasser@redhat.com> - 0:2.2.3-3jpp
+- Updated URL
+- Pro-forma rebuild with Ant 1.6.2 present
+
+* Sat Jan 10 2004 Ville Skyttä <ville.skytta at iki.fi> - 0:2.2.3-2jpp
+- Add Epoch.
+- Change group to Text Processing/Markup/XML.
+- Add unversioned javadoc dir symlinks, mark javadoc as %%doc.
+- Install manual as normal %%doc, not into %%{_javadocdir}.
+- BuildRequires java-devel (not ant).
+- Don't use bundled SAX jar.
+
+* Sat Dec 27 2003 Thomas Leonard <tle@sirius.sued.tremium.de> - 2.2.3-1
+- Initial build.
