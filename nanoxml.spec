@@ -37,7 +37,7 @@ Release:        4.1.6
 Epoch:          0
 Summary:        Small XML parser for Java
 License:        BSD-style
-URL:            http://nanoxml.cyberelf.be/
+URL:            https://nanoxml.cyberelf.be/
 Source0:        http://nanoxml.cyberelf.be/downloads/NanoXML-2.2.3.tar.bz2
 Source1:        %{name}-java-1.4.2-package-list
 Patch0:         %{name}-build.patch
